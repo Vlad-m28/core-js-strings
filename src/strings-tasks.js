@@ -253,8 +253,7 @@ function endsWith(str, substr) {
 function formatTime(minutes, seconds) {
   const min = String(minutes);
   const sec = String(seconds);
-  const time = '';
-  return time.concat(min.padStart(2, '0'), ':', sec.padStart(2, '0'));
+  return `${min.padStart(2, '0')}:${sec.padStart(2, '0')}`;
 }
 
 /**
@@ -289,7 +288,7 @@ function reverseString(str) {
 function orderAlphabetically(str) {
   return str
     .split('')
-    .sort(function s(a, b) {
+    .sort((a, b) => {
       if (a > b) return 1;
       if (a < b) return -1;
       return 0;
@@ -360,13 +359,7 @@ function isPalindrome(str) {
     .replaceAll('!', '')
     .replaceAll('?', '');
 
-  let reverse = '';
-
-  for (let i = s.length - 1; i >= 0; i -= 1) {
-    reverse += s.charAt(i);
-  }
-
-  return reverse === s;
+  return s.split('').reverse().join('') === s;
 }
 
 /**
